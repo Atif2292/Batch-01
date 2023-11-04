@@ -1,0 +1,25 @@
+
+Importance of String constant pool (SCP) :
+
+1. In our program if any String object is required to use repeatedly then it is not
+recommended to create multiple object with same content it reduces
+performance of the system and effects memory utilization.
+
+2. We can create only one copy and we can reuse the same object for every
+requirement. This approach improves performance and memory utilization we
+can achieve this by using "scp".
+
+3. In SCP several references pointing to same object the main disadvantage in this
+approach is by using one reference if we are performing any change the
+remaining references will be impacted. To overcome this problem sun people
+implemented immutability concept for String objects.
+
+4. According to this once we creates a String object we can't perform any changes
+in the existing object if we are trying to perform any changes with those changes
+a new String object will be created hence immutability is the main disadvantage
+of scp.
+
+Interning of String objects :
+
+By using heap object reference, if we want to get corresponding SCP object , then we
+should go for intern() method.

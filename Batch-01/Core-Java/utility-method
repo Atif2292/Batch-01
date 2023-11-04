@@ -1,0 +1,45 @@
+_______________
+Utility methods :
+_______________
+1. valueOf() method.
+2. XXXValue() method.
+3. parseXxx() method.
+4. toString() method.
+
+
+We can use valueOf() method to create wrapper object for the given primitive or String
+this method is alternative to constructor.
+example:
+Integer i=Integer.valueOf("10");
+
+--
+xxxValue() method :
+--
+We can use xxxValue() methods to convert wrapper object to primitive.
+Every number type wrapper class (Byte, Short, Integer, Long, Float, Double) contains
+the following 6 xxxValue() methods to convert wrapper object to primitives.
+example:
+System.out.println(i.byteValue());//-126
+System.out.println(i.shortValue());//130
+System.out.println(i.intValue());//130
+System.out.println(i.longValue());//130
+System.out.println(i.floatValue());//130.0
+System.out.println(i.doubleValue());//130.0
+
+--
+parseXxx() method :
+--
+We can use this method to convert String to corresponding primitive.
+example
+int i=Integer.parseInt("10");
+boolean b=Boolean.parseBoolean("ashok");
+
+
+toString() method :
+We can use toString() method to convert wrapper object (or) primitive to String.
+public String toString();
+1. Every wrapper class (including Character class) contains the above toString()
+method to convert wrapper object to String.
+2. It is the overriding version of Object class toString() method.
+3. Whenever we are trying to print wrapper object reference internally this
+toString() method only executed.

@@ -1,0 +1,49 @@
+Class Modifiers
+Whenever we are writing our own classes compulsory we have to provide some
+information about our class to the jvm.
+
+
+The only applicable modifiers for Top Level classes are:
+1. Public
+2. Default
+3. Final
+4. Abstract
+5. Strictfp
+
+Public Classes:
+If a class declared as public then we can access that class from anywhere. With in the
+package or outside the package.
+
+Default Classes:
+If a class declared as the default then we can access that class only within the current
+package hence default access is also known as "package level access".
+
+Final Modifier:
+Final is the modifier applicable for classes, methods and variables.
+
+Abstract Modifier:
+Abstract is the modifier applicable only for methods and classes but not for variables.
+
+Abstract class:
+For any java class if we are not allow to create an object such type of class we have to
+declare with abstract modifier that is for abstract class instantiation is not possible.
+
+Strictfp:
+ strictfp is the modifier applicable for methods and classes but not for variables.
+ Strictfp modifier introduced in 1.2 versions.
+ Usually the result of floating point of arithmetic is varing from platform to
+platform , to overcome this problem we should use strictfp modifier.
+ If a method declare as the Strictfp then all the floating point calculations in that
+method has to follow IEEE754 standard, So that we will get platform
+independent results.
+
+Static modifier:
+ Static is the modifier applicable for methods, variables and blocks.
+ We can't declare a class with static but inner classes can be declaring as the
+static.
+
+Native modifier:
+ Native is a modifier applicable only for methods but not for variables and
+classes.
+ The methods which are implemented in non java are called native methods or
+foreign methods.

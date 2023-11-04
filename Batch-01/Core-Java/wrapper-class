@@ -1,0 +1,16 @@
+--
+Introduction
+---
+
+To wrap primitives into object form so that we can handle primitives also just
+like objects.
+
+Constructors :
+1. All most all wrapper classes define the following 2 constructors one can take
+corresponding primitive as argument and the other can take String as argument.
+2. Example:
+ 1) Integer i=new Integer(10);
+ 2) Integer i=new Integer("10");
+
+Wrapper classes- har primitive type ke lia ek class bana di jisse Wrapper class
+kehte hn.collection primitive ko support nhi krte tu islea Wrapper class bani.

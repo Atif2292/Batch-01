@@ -1,0 +1,25 @@
+---
+Overloading in JAVA
+---
+If a class has multiple methods having same name but different in parameters,
+it is known as Method Overloading.
+   for example -
+  	public String addti1on(int a,int b, int c) {
+  		return null;
+
+  	}
+  	public String addtion(int a,int b, int d) {
+  	return null;
+  	}
+NOTE:
+Overloading is also considered as compile time polymorphism(or) static polymorphism
+(or)early biding.
+
+Note :
+While resolving overloaded methods exact match will always get high priority,
+While resolving overloaded methods child class will get the more priority than parent
+class
+
+NOTE:
+In overloading method resolution is always based on reference type and runtime object
+won't play any role in overloading.

@@ -1,0 +1,42 @@
+---
+Introduction
+---
+ Sometimes we can declare a class inside another class such type of classes are
+called inner classes.
+
+1. Normal (or) Regular inner class:
+
+If we are declaring any named class inside another class directly without static modifier
+such type of inner classes are called normal or regular inner classes.
+
+Example:
+class Outer
+{
+int x=10;
+class Inner
+{
+int x=100;
+public void methodOne()
+{
+int x=1000;
+System.out.println(x);//1000
+System.out.println(this.x);//100
+System.out.println(Outer.this.x);//10
+}
+}
+public static void main(String[] args)
+{
+new Outer().new Inner().methodOne();
+}
+}
+
+The applicable modifiers for outer classes are:
+1. public
+2. default
+3. final
+4. abstract
+5. strictfp
+
+Anonymous inner classes:
+ Sometimes we can declare inner class without name such type of inner classes are
+called anonymous inner classes.

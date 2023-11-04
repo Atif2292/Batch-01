@@ -1,0 +1,24 @@
+---
+StringBuffer :
+---
+1. If the content will change frequently then never recommended to go for String
+object because for every change a new object will be created internally.
+2. To handle this type of requirement we should go for StringBuffer concept.
+3. The main advantage of StringBuffer over String is, all required changes will be
+performed in the existing object only instead of creating new object.(won't create
+new object)
+
+Note :
+Every method present in StringBuffer is syncronized hence at a time only one thread is
+allowed to operate on StringBuffer object , it increases waiting time of the threads and
+creates performence problems , to overcome this problem we should go for
+StringBuilder.
+
+---
+StringBuilder (1.5v)
+---
+1. Every method present in StringBuffer is declared as synchronized hence at a
+time only one thread is allowed to operate on the StringBuffer object due to this,
+waiting time of the threads will be increased and effects performance of the
+system.
+2. To overcome this problem sun people introduced StringBuilder concept in 1.5v.

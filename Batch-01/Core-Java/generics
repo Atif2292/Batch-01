@@ -1,0 +1,104 @@
+=========
+GENERICS
+=========
+
+Deff : The main objective of Generics is to provide Type-Safety and to resolve
+Type-Casting problems.
+
+NOTE:
+But in the case of collection at the time of retrieval compulsory we should
+perform type casting otherwise we will get compile time error.
+
+Hence we can't provide guarantee for the type of elements present inside
+collections that is collections are not safe to use with respect to type.
+
+Collections concept applicable only for objects , Hence for the parameter
+type we can use any class or interface name but not primitive
+value(type).Otherwise we will get compile time error.
+
+Note:
+Polymorphism concept is applicable only for the base type but not for parameter
+type[usage of parent reference to hold child object is called polymorphism].
+
+NOTE:
+Until 1.4v a non-generic version of ArrayList class is declared as follows.
+Example:
+class ArrayList
+{
+add(Object o);
+Object get(int index);
+}
+
+NOTE:
+But in 1.5v a generic version of ArrayList class is declared as follows.
+Example:
+class ArrayList<T>
+{
+add(T t);
+T get(int index);
+}
+
+NOTE:
+ Based on our requirement T will be replaced with our provided type.
+ For Example to hold only string type of objects we can create ArrayList object as
+follows.
+
+--
+Bounded types:
+--
+We can bound the type parameter for a particular range by using extends
+keyword such types are called bounded types.
+Example 1:
+class Test<T>
+{}
+Test <Integer> t1=new Test < Integer>();
+Test <String> t2=new Test < String>();
+ Here as the type parameter we can pass any type and there are no restrictions
+hence it is unbounded type.
+
+
+Example 2:
+class Test<T extends X>
+{}
+ If x is a class then as the type parameter we can pass either x or its child classes.
+ If x is an interface then as the type parameter we can pass either x or its
+implementation classes.
+
+NOTE:
+class Test <T extends Number&Runnable> {}(valid)
+As the type parameter we can pass any type which extends Number class
+and implements Runnable interface.
+
+NOTE:
+class Test<T extends Runnable&Number> {} (invalid)
+because Runnable IS A CLASS.
+Note: we have to take first class then interface.
+
+--
+Generic methods and wild-card character (?) :
+--
+-->
+methodOne(ArrayList<?> l):
+
+We can use this method for ArrayList of any type but within the method we can't add
+anything to the List except null.
+Example:
+l.add(null);//(valid)
+l.add("A");//(invalid)
+l.add(10);//(invalid)
+ This method is useful whenever we are performing only read operation.
+
+-->
+methodOne(ArrayList<? Extends x> l):
+ If x is a class then this method is applicable for ArrayList of either x type or its child
+classes.
+ If x is an interface then this method is applicable for ArrayList of either x type or its
+implementation classes.
+ In this case also within the method we can't add anything to the List except null.
+
+
+NOTE:
+ The following 2 declarations are equal.
+ArrayList<String> l1=new ArrayList();
+ArrayList<String> l2=new ArrayList<String>();
+ For these ArrayList objects we can add only String type of objects.

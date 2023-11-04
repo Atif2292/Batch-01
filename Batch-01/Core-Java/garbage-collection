@@ -1,0 +1,90 @@
+---
+Garbage collector
+---
+
+When ever the program runs with low memory the JVM will execute Garbage Collector
+to provide free memory. So that the main Thread can continue it's execution.
+
+
+ An object is eligible for GC if and only if it does not have any references.
+
+
+The following are various possible ways to make an object eligible for GC:
+
+  1.Nullifying the reference variable:
+
+  2.Reassign the reference variable:
+
+  3. Objects created inside a method:
+
+Note: if an object doesn't have any reference then it always eligible for GC.
+Note: Even though object having reference still it is eligible for GC some times.
+
+
+The methods for requesting JVM to run GC:
+
+ Once we made an object eligible for GC it may not be destroyed immediately by
+the GC. Whenever jvm runs GC then only object will be destroyed by the GC.
+But when exactly JVM runs GC we can't expert it is vendor dependent.
+
+ We can request jvm to run garbage collector programmatically, but whether jvm
+accept our request or not there is no guaranty. But most of the times JVM will
+accept our request.
+
+The following are various ways for requesting jvm to run GC:
+
+By System class:
+System class contains a static method GC for this purpose.
+Example:
+System.gc();
+
+By Runtime class:
+ A java application can communicate with jvm by using Runtime object.
+ Runtime class is a singleton class present in java.lang. Package.
+ We can create Runtime object by using factory method getRuntime().
+
+Example:
+Runtime r=Runtime.getRuntime();
+Once we got Runtime object we can call the following methods on that object.
+freeMemory(): returns the free memory present in the heap.
+totalMemory(): returns total memory of the heap.
+gc(): for requesting jvm to run gc.
+
+Note : Runtime class is a singleton class so not create the object to use constructor.
+
+Note: gc() method present in System class is static, where as it is instance method in
+Runtime class.
+Note: Over Runtime class gc() method , System class gc() method is recommended to
+use.
+Note: in java it is not possible to find size of an object and address of an object.
+
+--
+Finalization:
+--
+ Just before destroying any object gc always calls finalize() method to perform
+cleanup activities.
+ If the corresponding class contains finalize() method then it will be executed
+otherwise Object class finalize() method will be executed.
+which is declared as follows.
+protected void finalize() throws Throwable
+
+NOTE:
+For Example if String object is eligible for GC then String class finalize()method is
+executed but not Test class finalize()method.
+
+Note:
+In Servlets we can call destroy() method explicitly from init() and service()
+methods. Then it will be executed just like a normal method call and Servlet object
+won't be destroyed.
+
+---
+Memory leaks:
+---
+ An object which is not using in our application and it is not eligible for GC such
+type of objects are called "memory leaks".
+ In the case of memory leaks GC also can't do anything the application will be
+crashed due to memory problems.
+ In our program if memory leaks present then certain point we will get
+OutOfMemoryException. Hence if an object is no longer required then it's
+highly recommended to make that object eligible for GC.
+ By using monitoring tools we can identify memory leaks.

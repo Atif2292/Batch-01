@@ -1,0 +1,56 @@
+---
+Serialization
+---
+1. The process of saving (or) writing state of an object to a file is called serialization
+2. but strictly speaking it is the process of converting an object from java supported
+form to either network supported form (or) file supported form.
+
+---
+De-Serialization:
+---
+1. The process of reading state of an object from a file is called DeSerialization
+2. but strictly speaking it is the process of converting an object from file supported
+form (or) network supported form to java supported form.
+
+Note:
+1. We can perform Serialization only for Serilizable objects.
+2. An object is said to be Serilizable if and only if the corresponding class
+implements Serializable interface.
+3. Serializable interface present in java.io package and does not contain any
+methods. It is marker interface. The required ability will be provided
+automatically by JVM.
+
+---
+Transient keyword:
+---
+1. transient is the modifier applicable only for variables.
+2. While performing serialization if we don't want to save the value of a particular
+variable to meet security constant such type of variable , then we should declare
+that variable with "transient" keyword.
+3. At the time of serialization JVM ignores the original value of transient variable
+and save default value to the file
+
+-----
+customized serialization
+-----
+We can implements customized serialization by using the following two methods.
+
+1. private void writeObject(ObjectOutputStream os) throws Exception.
+This method will be executed automatically by jvm at the time of serialization.
+It is a callback method. Hence at the time of serialization if we want to perform
+any extra work we have to define that in this method only.
+(prepare encrypted password and write encrypted password seperate to the file )
+
+2. private void readObject(ObjectInputStream is) throws Exception.
+This method will be executed automatically by JVM at the time of
+Deserialization. Hence at the time of Deserialization if we want to perform any
+extra activity we have to define that in this method only.
+(read encrypted password , perform decryption and assign decrypted password
+to the current object password variable )
+
+---
+serialVersionUID :
+---
+To perform Serialization & Deserialization internally JVM will use a unique identifier ,
+which is nothing but serialVersionUID .
+At the time of serialization JVM will save serialVersionUID with object.

@@ -1,0 +1,69 @@
+NOTE:
+ Enum concept introduced in 1.5 versions.
+
+--
+Introduction :
+--
+We can use enum to define a group of named constants.
+Example 1:
+enum Month
+{
+JAN,FEB,MAR, ... DEC; //; -->optional
+}
+
+Note:
+We can declare enum either outside the class or within the class but not inside a method.
+
+--
+Java.lang.Enum class:
+--
+Every enum in java is the direct child class of java.lang.Enum class. Hence this class
+acts as base class for all java enums.
+
+It is abstract class and it is direct child class of "Object class"
+
+It implements Serializable and Comparable.
+
+values() method:
+Every enum implicitly contains a static values() method to list all constants of enum.
+Example: Beer[] b=Beer.values();
+
+
+ordinal() method:
+Within enum the order of constants is important we can specify by its ordinal value. We
+can find ordinal value(index value) of enum constant by using ordinal() method.
+Example: public final int ordinal();
+
+NOTE:
+Inside enum we can declare main method and even we can invoke enum directly from
+the command prompt.
+Example:
+enum Fish{
+GOLD,APOLO,STAR;
+public static void main(String args[]){
+System.out.println("enum");
+}}
+
+---
+Enum vs constructor:
+---
+Enum can contain constructor. Every enum constant represents an object of that enum
+class which is static hence all enum constants will be created at the time of class loading
+automatically and hence constructor will be executed at the time of enum class loading
+for every enum constants.
+
+NOTE:
+We can't create enum object explicitly and hence we can't invoke constructor directly.
+
+---
+enum Vs Enum Vs Enumeration :
+---
+enum :
+enum is a keyword which can be used to define a group of named constants.
+Enum :
+It is a class present in java.lang package .
+Every enum in java is the direct child class of this class. Hence this Enum class acts as
+base class for all java enum's .
+Enumeration :
+It is a interface present in java.util package .
+We can use Enumeration to get the objects one by one from the Collections.

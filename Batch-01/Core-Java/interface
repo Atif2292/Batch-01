@@ -1,0 +1,132 @@
+======================
+Interface in Java
+======================
+
+
+Def1: Any service requirement specification (srs) is called an interface.
+
+Def2: From the client point of view an interface define the set of services what is
+expecting. From the service provider point of view an interface defines the set of
+services what is offering. Hence an interface is considered as a contract between client
+and service provider.
+
+Summery def: Any service requirement specification (SRS) or any contract between
+client and service provider or 100% pure abstract classes is considered as an interface.
+
+NOTE:
+1)There can be only abstract method in the JAVA interface,not method body.
+2)It is use to achieve abstraction and multiple inheritance in JAVA.
+3)In other words,you can say that interface can  have abstract method and variables.
+4)It cannot have a method body.
+5)It can not be instantiated just like the abstract class.
+
+Syntax:
+
+    interface <interface_name>{
+
+        // declare constant fields
+        // declare methods that abstract
+        // by default.
+}
+
+--
+Extends vs implements:
+--
+A class can extends only one class at a time.
+
+An interface can extend any no. Of interfaces at a time.
+
+A class can implements any no. Of interfaces at a time.
+
+A class can extend a class and can implement any no. Of interfaces simultaneously.
+
+---
+Interface methods:
+---
+
+Every method present inside interface is always public and abstract whether we are
+declaring or not.
+
+void methodOne();
+public Void methodOne();
+abstract Void methodOne();
+public abstract Void methodOne();
+
+public: To make this method available for every implementation class.
+abstract: Implementation class is responsible to provide implementation
+
+NOTE:
+As every interface method is always public and abstract we can't use the following
+modifiers for interface methods.
+Private, protected, final, static, synchronized, native, strictfp. --non of them
+
+---
+Interface variables:
+---
+ An interface can contain variables
+ The main purpose of interface variables is to define requirement level constants.
+ Every interface variable is always public static and final whether we are
+declaring or not.
+
+public: To make it available for every implementation class.
+static: Without existing object also we have to access this variable.
+final: Implementation class can access this value but cannot modify.
+
+NOTE:
+For the interface variables compulsory we should perform initialization at the
+time of declaration only otherwise we will get compile time error.
+
+_________________________
+Interface naming conflicts:
+Method naming conflicts:
+_________________________
+
+If two interfaces contain a method with same signature and same return type in the
+implementation class only one method implementation is enough.
+
+if two interfaces contain a method with same name but different arguments in the
+implementation class we have to provide implementation for both methods and these
+methods acts as a overloaded methods
+
+If two interfaces contain a method with same signature but different return types then it
+is not possible to implement both interfaces simultaneously.
+
+---
+Variable naming conflicts:
+---
+Two interfaces can contain a variable with the same name and there may be a chance
+variable naming conflicts but we can resolve variable naming conflicts by using
+interface names.
+
+_____________
+Marker interface:
+_____________
+If an interface doesn't contain any methods and by implementing that interface if our
+objects will get some ability such type of interfaces are called Marker interface (or) Tag
+interface (or) Ability interface.
+Example:
+Serializable
+Cloneable
+RandomAccess
+
+Example 1:
+By implementing Serilaizable interface we can send that object across the network and
+we can save state of an object into a file.
+
+Example 3:
+By implementing Cloneable interface our object is in a position to provide exactly
+duplicate cloned object.
+Without having any methods in marker interface how objects will get ability ?
+Internally JVM is responsible to provide required ability.
+
+______________
+Adapter class:
+______________
+ Adapter class is a simple java class that implements an interface only with empty
+implementation for every method.
+ If we implement an interface directly for each and every method compulsory we
+should provide implementation whether it is required or not. This approach
+increases length of the code and reduces readability.
+ Instead of implementing an interface if we can extend adapter class we have to
+provide implementation only for required methods but not for all methods of
+that interface.
